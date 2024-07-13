@@ -1,0 +1,239 @@
+.navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+.small {
+    height: 15px;
+    width: 15px;
+    margin-right: .5em;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2em;
+    margin-top: 1em;
+    margin-right: 2em;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 0.9rem;
+}
+
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: .6em;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    z-index: 1;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.unvisited {
+
+    border: 1px solid rgb(175, 216, 248);
+    background-color: white
+}
+
+
+
+
+.visited {
+    border: 1px solid rgb(175, 216, 248);
+    background-color: rgb(117, 176, 231);
+    transition: all 2s ease-out;
+}
+
+.done {
+    border: 1px solid rgb(175, 216, 248);
+    background-color: rgb(17, 77, 133);
+    transition: all 2s ease-out;
+}
+
+.visited-right {
+    border: 1px solid rgb(175, 216, 248);
+    background-color: rgb(117, 176, 231);
+    transition: all 2s ease-out;
+}
+
+.visited-left {
+    border: 1px solid rgb(175, 216, 248);
+    background-color: rgb(117, 176, 231);
+    transition: all 2s ease-out;
+}
+
+.wall {
+    border: 1px solid rgb(175, 216, 248);
+    background-color: gray;
+    transition: all .5s ease-out;
+}
+
+
+.path {
+
+    background-color: rgb(44, 137, 66);
+    transition: all 2s ease-out;
+    color: white;
+}
+
+
+.start-cell {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/right-arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.maze-move-right {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/right-arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+.maze-move-left {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/left-arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.maze-move-up {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/up-arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.maze-move-down {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/down-arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+
+.destination-cell {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/destination/destination.png');
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.track {
+    width: inherit;
+    height: inherit;
+    background-image: url('../media/arrows/dot.png');
+    background-size: 35%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#tutorial-card {
+    width: 50%;
+    z-index: 3;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    position: absolute;
+    z-index: 2;
+
+}
+
+.card-image {
+    height: 40%;
+    width: 40%;
+    margin-left: 30%;
+    display: block;
+
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 94%;
+    padding-bottom: 1em;
+}
+
+#skip-button {
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.card-buttons a {
+    color: rgb(28, 85, 123);
+}
+
+.top-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.page-counter-div {
+    margin-left: auto;
+}
+
+.card-title-div {
+    margin-left: auto;
+}
+
+.page-counter {
+    font-size: smaller;
+}
+
+.image-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: auto;
+}
+
+#tutorial-card {
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+}
+
+#secondary-image {
+    margin-left: 2em;
+}
+
+.card-body {
+    height: 70%;
+}

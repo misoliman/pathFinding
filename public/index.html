@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinding Visualizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="media/favicon/path.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid ">
+                <a class="navbar-brand " href="#">Pathfinding Visualizer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mx-auto ">
+                        <li class="nav-item dropdown" id="algorithm-show">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu1" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Algorithms
+                            </a>
+
+                            <ul class="dropdown-menu" id="algorithm-select" aria-labelledby="navbarDropdownMenu1">
+                                <li><a class="dropdown-item" id="dijkstra" href="#">Dijkstra's Algorithm</a></li>
+                                <li><a class="dropdown-item" id="astar" href="#">A* Search</a></li>
+                                <li><a class="dropdown-item" id="bds" href="#">Bidirectional Search</a></li>
+                                <li><a class="dropdown-item" id="dfs" href="#">Depth First Search</a></li>
+                                <li><a class="dropdown-item" id="bfs" href="#">Breadth First Search</a></li>
+                                <li><a class="dropdown-item" id="gbfs" href="#">Greedy Best First Search</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" id="obstacles-show">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu2" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Obstacles
+                            </a>
+                            <ul class="dropdown-menu" id="obstacles-select" aria-labelledby="navbarDropdownMenu2">
+                                <li><a class="dropdown-item" id="random" href="#">Random </a></li>
+                                <li><a class="dropdown-item" id="stair" href="#">Stair </a></li>
+                                <li><a class="dropdown-item" id="no" href="#">No Obstacles</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu3" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Search Speed
+                            </a>
+                            <ul class="dropdown-menu" id="speed-select" aria-labelledby="navbarDropdownMenu3">
+                                <li><a class="dropdown-item" id="fast" href="#">Fast</a></li>
+                                <li><a class="dropdown-item" id="average" href="#">Average</a></li>
+                                <li><a class="dropdown-item" id="slow" href="#">Slow</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown " id="heuristic-show" hidden>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu4" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Heuristic
+                            </a>
+                            <ul class="dropdown-menu" id="heuristic-select" aria-labelledby="navbarDropdownMenu4">
+                                <li><a class="dropdown-item" id="naive" href="#">Naive</a></li>
+                                <li><a class="dropdown-item" id="informed" href="#">Infromed</a></li>
+                                <li><a class="dropdown-item" id="advanced" href="#">Advanced</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown " id="maze-show">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu5" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Maze
+                            </a>
+                            <ul class="dropdown-menu" id="maze-select" aria-labelledby="navbarDropdownMenu5">
+                                <li><a class="dropdown-item" id="maze" href="#">Maze</a></li>
+                                <li><a class="dropdown-item" id="no-maze" href="#">No Maze</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form action="#" id="visualize-settings">
+
+                        <div class="d-flex">
+                            <button type="submit" id="visualize-algorithm"
+                                class="btn btn-primary  me-2 ">Search</button>
+                            <button type="button" id="clear-search" class="btn btn-info  me-2 ">Clear</button>
+                            <button type="button" id="clear-grid" class="btn btn-danger ">New</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="container legend">
+        <span class="item">
+            <img class="small " src="media/arrows/right-arrow.png" alt=""><span class="">Start Cell</span>
+        </span>
+        <span class="item">
+            <img class="small" src="media/destination/destination.png" alt=""><span class="">Destination Cell</span>
+        </span>
+        <span class="item">
+            <img class="small" src="media/cells/Unvisited.PNG" alt=""><span class="">Unvisited Cell</span>
+        </span>
+        <span class="item">
+            <img class="small" src="media/cells/visited.PNG" alt=""><span class="">Visited Cell</span>
+        </span>
+        <span class="item">
+            <img class="small" src="media/cells/wall.PNG" alt=""><span class="">Wall Block</span>
+        </span>
+        <!-- <span class="item">
+            <img class="small" src="media/cells/proccessed.PNG" alt=""><span class="">Done</span>
+        </span> -->
+        <span class="item">
+            <img class="small" src="media/cells/path.PNG" alt=""><span class="">Path</span>
+        </span>
+
+
+    </div>
+
+    <div class="card text-center" id="tutorial-card">
+        <div class="card-body container-fluid ">
+            <div class="top-card mb-4 mt-3">
+                <div class="card-title-div d-inline">
+                    <h5 class="card-title d-inline" id="tutorial-header-data"></h5>
+                </div>
+                <div class="page-counter-div d-inline">
+                    <span class="text-muted page-counter" id="page-count"></span>
+
+                </div>
+            </div>
+            <h6 class="card-subtitle mb-2 text-muted" id="subtitle-data"></h6>
+            <p class="card-text mt-4" id="description-data"></p>
+            <div class="image-panel">
+                <img class="card-image align-center mt-2 mb-3" src="" alt="" id="tutorial-image">
+                <img class="card-image align-center mt-2 mb-3" src="" alt="me" id="secondary-image">
+            </div>
+
+
+
+        </div>
+        <div class="card-buttons">
+            <a href="#" id="skip-button" class="card-link btn btn-sm">Skip Tutorial</a>
+            <a href="#" id="previous-button" class="card-link btn btn-sm">Previous</a>
+            <a href="#" id="next-button" class="card-link btn  btn-sm">Next</a>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <table>
+            <tbody class="grid">
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Invalid Input</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/algorithms.js"></script>
+
+
+
+</body>
+
+</html>
